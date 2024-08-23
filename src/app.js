@@ -4,6 +4,7 @@ import dotenv from "dotenv"
 import express from "express"
 import bodyParser from "body-parser";
 import userRoute from "./Routes/userRoute.js";
+import blogRoute from "./Routes/blogRoute.js";
 
 
 
@@ -21,5 +22,6 @@ app.use(express.urlencoded({limit: "100mb", extended: true, parameterLimit: 5000
 dotenv.config();
 
 app.use("/api", userRoute)
+app.use("/api",blogRoute)
 
 export default app;

@@ -42,8 +42,6 @@ const createUser= async(req,res)=>{
              error: err
             });
 
-            
-
     }
 
 }
