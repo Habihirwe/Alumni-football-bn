@@ -3,12 +3,6 @@ import cloudinary from "../utils/claudinary.js";
 import blogValidationSChema from "../validations/blogValidation.js";
 
 const createBlog = async (req, res) => {
-  const { error } = blogValidationSChema.validate(req.body);
-  if (error)
-    return res.status(400).json({ validationError: error.details[0].message });
-
-  const { image, title, description } = req.body;
-
   if (image) {
     try {
       const uploadRes = await cloudinary.uploader.upload(image, {
@@ -18,6 +12,7 @@ const createBlog = async (req, res) => {
         const blog = new Blog({
           title,
           description,
+          
           image: uploadRes,
         });
         await blog.save();

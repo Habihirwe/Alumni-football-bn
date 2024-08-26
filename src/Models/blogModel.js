@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+const { Schema } = mongoose;
 
 const blogSchema= mongoose.Schema({
     image:{
@@ -9,11 +10,25 @@ const blogSchema= mongoose.Schema({
         type:String,
         required:true
     },
-    description:{
+    content:{
         type:String,
         required:true,
-       
     },
+    author: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    },
+    likes:[{ type: Schema.Types.ObjectId, ref:'User'}],
+    comments:[{
+        text:String,
+        created:{type:Date, default:Date.now},
+        postedBy:{
+            type:Schema.Types.ObjectId,
+            ref:'User'
+        }
+    }]
+
+    
 },{
     timestamps:true
 })
