@@ -1,10 +1,10 @@
 import mongoose from "mongoose";
+const { ObjectId } = mongoose.Schema;
 const { Schema } = mongoose;
 
 const blogSchema= mongoose.Schema({
-    image:{
-        type:Object,
-        required:true,
+    image: {
+        type:String
     },
     title: {
         type:String,
@@ -13,20 +13,19 @@ const blogSchema= mongoose.Schema({
     content:{
         type:String,
         required:true,
-    },
-    author: {
-        type: Schema.Types.ObjectId,
-        ref: 'User'
-    },
-    likes:[{ type: Schema.Types.ObjectId, ref:'User'}],
-    comments:[{
-        text:String,
-        created:{type:Date, default:Date.now},
-        postedBy:{
-            type:Schema.Types.ObjectId,
-            ref:'User'
-        }
-    }]
+    },  
+    createdBy:{type: Schema.Types.ObjectId, ref:"User", required:true},
+    likes: [{ type: ObjectId, ref: "User" }],
+        comments: [
+            {
+                text: String,
+                created: { type: Date, default: Date.now },
+                createdBy: {
+                    type: Schema.Types.ObjectId,
+                    ref: "User",
+                },
+            },
+        ],
 
     
 },{

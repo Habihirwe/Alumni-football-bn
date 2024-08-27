@@ -1,4 +1,4 @@
-import Jwt from "jsonwebtoken";
+import Jwt, { decode } from "jsonwebtoken";
 
 
 const authLogin = async (request, response, next) => {
@@ -10,9 +10,7 @@ const authLogin = async (request, response, next) => {
   } else {
     try {
       var decoded = Jwt.verify(token, process.env.JWT_SECRET);
-
       if (decoded) {
-        console.log(decoded.data)
         request.user = decoded.data;
       } else {
         return response.status(401).json({
