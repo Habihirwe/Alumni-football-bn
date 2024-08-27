@@ -17,13 +17,11 @@ const userSchema= mongoose.Schema({
     },
     gender:{
         type:String,
-        required:true,
-        unique:true
+       required:true
     },
     role:{
         type:String,
-        required:true,
-        unique:true
+        required:true
     },
     password: {
         type:String,

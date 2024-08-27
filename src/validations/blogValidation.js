@@ -6,8 +6,8 @@ const blogValidationSChema = Joi.object ({
         "string.pattern.base": "The titles can not include numbers and special characters",
         "any.required": "The title field can not be empty"
     }),
-    description: Joi.string().required().label("description").messages({
-      "any.required": "The  description field can not be empty"
+    content: Joi.string().required().label("content").messages({
+      "any.required": "The content field can not be empty"
   }),
 
   image: Joi.string().messages({

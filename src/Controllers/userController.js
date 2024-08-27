@@ -64,9 +64,11 @@ const Login =async(req,res)=>{
         });
 
     }
-const token = Jwt.sign({id:user._id},process.env.JWT_SECRET, {
-    expiresIn: "48h",
-} )
+    const token = Jwt.sign(
+        { data: { _id: user._id, name: user.lastname, email: user.email } }, 
+        process.env.JWT_SECRET, 
+        { expiresIn: '48h' }
+    );
 res.header("auth_token", token)
 return res.status(201).json({
     status:"success",
