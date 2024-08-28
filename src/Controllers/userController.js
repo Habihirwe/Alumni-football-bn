@@ -24,19 +24,23 @@ const createUser= async(req,res)=>{
             firstname: req.body.firstname,
             lastname: req.body.lastname,
             email:req.body.email,
-            role:req.body.role,
-            gender:req.body.gender,
+            // role:req.body.role,
+            // gender:req.body.gender,
             password: hashedpassword,
             repeatPassword: hashedrepeatpassword
 
         })
         await user.save();
+        console.log(user)
         res.status(201).json({
             status: "success", 
             "successMessage":"account created successfully",
-            user: user});
+            user: user
+            
+        });
 
     }catch(err){
+        console.log(err)
         res.status(500).json(
             { status:"fail",
              error: err
