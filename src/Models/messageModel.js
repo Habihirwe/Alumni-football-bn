@@ -2,11 +2,18 @@ import mongoose from "mongoose";
 const { ObjectId } = mongoose.Schema;
 
 const messageSchema = mongoose.Schema({
+    name:{
+        type:String,
+        required:true
+
+    },
     email:{
-        type:String
+        type:String,
+        required:true
     },
     phoneNumber:{
-        type:String
+        type:String,
+        required:true
     },
     content:{
         type:String,

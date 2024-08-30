@@ -3,12 +3,14 @@ import Message from "../Models/messageModel.js"
 const createMessage =async (req,res)=>{
     try{
         const data= new Message({
+            name:req.body.name,
             email:req.body.email,
             content:req.body.content,
             phoneNumber:req.body.phoneNumber
     
         })
         const message = await data.save()
+        console.log(message)
         res.status(201).json({
             status: "success", 
             "successMessage":"message created successfully",
@@ -17,7 +19,7 @@ const createMessage =async (req,res)=>{
     }catch(error){
         res.status(500).json(
             { status:"fail",
-             error: err
+             error: error
             });
     }
 
@@ -28,14 +30,14 @@ const getAllMessage= async(re,res)=>{
         const message= await Message.find()
         res.status(201).json({
             status: "success", 
-            "successMessage":"message created successfully",
+            "successMessage":"message retrieved successfully",
             Message: message});
 
 
     }catch(error){
         res.status(500).json(
             { status:"fail",
-             error: err
+             error: error
             });
     }
 
