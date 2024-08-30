@@ -7,8 +7,8 @@ const blogRoute= Express.Router();
 
 
 blogRoute.post('/createBlog', authLogin,upload.single('image'),createPost)
-blogRoute.get('/getblogs',getAllBlogs)
-blogRoute.get('/blog/:id', getSingleBlog);
+blogRoute.get('/getblogs',authLogin,getAllBlogs)
+blogRoute.get('/blog/:id', authLogin,getSingleBlog);
 blogRoute.delete('/deleteblog/:id', deleteblog);
 blogRoute.post('/updateblog/:id',upload.single('image'), updateBlog);
 blogRoute.post('/comment/blog/:id',authLogin,addComment);

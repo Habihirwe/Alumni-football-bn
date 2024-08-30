@@ -5,6 +5,7 @@ import bodyParser from "body-parser";
 import userRoute from "./Routes/userRoute.js";
 import blogRoute from "./Routes/blogRoute.js";
 import fileUpload from 'express-fileupload';
+import messageRoute from "./Routes/messageRoute.js";
 
 
 const app = express();
@@ -26,5 +27,6 @@ dotenv.config();
 
 app.use("/api", userRoute)
 app.use("/api",blogRoute)
+app.use("/api",messageRoute)
 
 export default app;
