@@ -4,7 +4,6 @@ import express from "express"
 import bodyParser from "body-parser";
 import userRoute from "./Routes/userRoute.js";
 import blogRoute from "./Routes/blogRoute.js";
-import fileUpload from 'express-fileupload';
 import messageRoute from "./Routes/messageRoute.js";
 
 
