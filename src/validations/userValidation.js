@@ -10,10 +10,10 @@ const userValidationSchema = Joi.object({
         "string.pattern.base": "The name field can not include numbers and special characters",
         "string.empty": "The name field can not be empty"
     }),
-    // role: Joi.string().required().min(2).label("role").regex(/^[A-Za-z]+$/).messages({
-    //     "string.pattern.base": "The name field can not include numbers and special characters",
-    //     "string.empty": "The name field can not be empty"
-    // }),
+    role: Joi.string().min(2).label("role").regex(/^[A-Za-z]+$/).messages({
+        "string.pattern.base": "The name field can not include numbers and special characters",
+        "string.empty": "The name field can not be empty"
+    }),
     // gender: Joi.string().required().min(2).label("gender").regex(/^[A-Za-z]+$/).messages({
     //     "string.pattern.base": "The name field can not include numbers and special characters",
     //     "string.empty": "The name field can not be empty"

@@ -24,7 +24,7 @@ const createUser= async(req,res)=>{
             firstname: req.body.firstname,
             lastname: req.body.lastname,
             email:req.body.email,
-            // role:req.body.role,
+            role:req.body.role,
             // gender:req.body.gender,
             password: hashedpassword,
             repeatPassword: hashedrepeatpassword
