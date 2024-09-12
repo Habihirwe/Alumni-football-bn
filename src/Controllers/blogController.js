@@ -2,7 +2,6 @@ import cloudinary from "../utils/claudinary.js";
 import Blog from "../Models/blogModel.js";
 const createPost = async (req, res) => {
     try {
-        console.log(req.user)
         const postImageResult = await cloudinary.uploader.upload(req.file.path);
         const data = new Blog({
             title: req.body.title,
