@@ -136,4 +136,13 @@ const deleteuser= async(req,res)=>{
             });
     }
 }
+
+const logout= async(req,res)=>{
+    try{
+        res.c
+
+    }catch(error){
+
+    }
+}
 export { createUser, Login ,getsingleUser,getAllUsers,deleteuser }
