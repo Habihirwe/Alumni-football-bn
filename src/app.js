@@ -6,6 +6,7 @@ import userRoute from "./Routes/userRoute.js";
 import blogRoute from "./Routes/blogRoute.js";
 import messageRoute from "./Routes/messageRoute.js";
 import profileRoute from "./Routes/profileRoute.js";
+import topScorerRoute from "./Routes/topScorerRoute.js";
 
 
 const app = express();
@@ -29,5 +30,6 @@ app.use("/api", userRoute)
 app.use("/api",blogRoute)
 app.use("/api",messageRoute)
 app.use("/api",profileRoute)
+app.use("/api",topScorerRoute)
 
 export default app;
